@@ -1,0 +1,75 @@
+@import "mixins";
+//https://flatuicolors.com/palette/es
+
+$base-width: 1280px;
+$tablet-width: 768px;
+$mobile-portrait-width: 300px;
+$mobile-landscape-width: 420px;
+$float-direction:right;
+
+$num-columns: 16;
+$margin: 20px;
+
+
+@function column-width($num: 1, $width: $base-width) {
+    @return ($num * ($width / $num-columns)) - (2 * $margin);
+}
+
+@mixin container {
+    @include clearfix;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: $base-width;
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        width: $tablet-width;
+    }
+
+    @media only screen and (max-width: 767px) {
+        width: $mobile-portrait-width;
+    }
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        width: $mobile-landscape-width;
+    }
+}
+
+@mixin column {
+    @include clearfix;
+    float: $float-direction;
+    display: inline;
+    margin-left: $margin;
+    margin-right: $margin;
+
+    @media only screen and (max-width: 767px) {
+        margin: 0;
+    }
+}
+
+@mixin grid($num: 1) {
+    @include column;
+    width: column-width($num, $base-width);
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        width: column-width($num, $tablet-width);
+    }
+
+    @media only screen and (max-width: 767px) {
+        width: $mobile-portrait-width;
+    }
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        width: $mobile-landscape-width;
+    }
+}
+
+@mixin row {
+    // margin-top: $margin / 2;
+    // margin-bottom: 2 * $margin;
+    @include clearfix;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}

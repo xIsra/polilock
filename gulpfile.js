@@ -14,6 +14,7 @@ var pug = require('gulp-pug');
 // error handling
 var plumber = require('gulp-plumber');
 var image = require('gulp-image');
+var buildFolder = 'docs';
 
 gulp.task('scss', function () {
   return gulp.src(['src/scss/**/*.scss', '!src/scss/**/_*.scss'])
@@ -23,20 +24,20 @@ gulp.task('scss', function () {
     .pipe(csslint())
     .pipe(cssmin())
     .pipe(rename('main.min.css'))
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest(buildFolder + '/css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('img', function () {
   return gulp.src('src/img/**/*')
     .pipe(image())
-    .pipe(gulp.dest('build/img'));
+    .pipe(gulp.dest(buildFolder + '/img'));
 });
 gulp.task('js', function () {
   return gulp.src('src/js/**/*.js')
     .pipe(plumber())
     .pipe(concat('main.min.js'))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest(buildFolder + '/js'))
     .pipe(browserSync.stream());
 });
 
@@ -44,19 +45,19 @@ gulp.task('pug', function () {
   return gulp.src('src/**/*.pug')
     .pipe(plumber())
     .pipe(pug())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest(buildFolder + ''));
 });
 gulp.task('html', function () {
   return gulp.src('src/**/*.html')
     .pipe(plumber())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest(buildFolder + ''));
 });
 
 gulp.task('default', ['scss', 'js', 'pug', 'img']);
 
 gulp.task('watch', function () {
   browserSync.init({
-    server: 'build'
+    server: buildFolder + ''
   });
   gulp.watch('src/js/**/*.js', ['js']).on('change', browserSync.reload);
   gulp.watch('src/img/**/*', ['img']).on('change', browserSync.reload);

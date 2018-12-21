@@ -26,24 +26,25 @@ html(lang="he")
                                     
                         ul
                             li
-                                a(href="#").
+                                a(href="#main").
                                     ראשי
                             li
-                                a(href="#").
+                                a(href="#service").
                                     שירות
                             li
-                                a(href="#").
+                                a(href="#details").
                                     עלינו
                             li
-                                a(href="#").
+                                a(href="#about").
                                     אודות
-                .hero.main
+                .hero.main#main
                     .center-container
                         .container-inner
                             .hero-title ברוכים הבאים ל Poli-Lock
                             .hero-subtitle שירותי פריצה ומנעולנות במרחב תל-אביב מרכז
-                            .next
-                                i.fas.fa-chevron-circle-down
+                            a(href="#service")
+                                .next
+                                    i.fas.fa-chevron-circle-down
                 //- .hero.main-details
                 //-     .center-container
                 //-         .container-inner
@@ -51,7 +52,7 @@ html(lang="he")
                 //-             p ברגעים אלה, אנחנו מחפשים מנעולן מקצועי שיתן לנו מענה מהיר ואיכותי.
                 //-             p Poli-lock מספקים שירותים מקצועיים 24/7 ומקפידים על אמינות,מקצועיות והגעה מהירה ללקוח
                 //-             img.lock-icon(src="img/lock-icon.svg", alt="Lock Icon", srcset="")
-                .hero.service
+                .hero.service#service
                     .center-container
                         .container-little
                             h1.service-title שירותי המנעולנות שלנו
@@ -72,7 +73,7 @@ html(lang="he")
                                     | 054-382-4499
                         .container-little
                             .quote-addition כל השירותים ניתנים ע"י מנעולן שמאושר ע"י משטרת ישראל והינו חבר בעמותת המנעולנים הבינלאומית והינו מומחה בתחומו.
-                .hero.details
+                .hero.details#details
                     .container
                         .row.details-container
                             h1.detail-title-main למה לבחור בנו?
@@ -92,7 +93,7 @@ html(lang="he")
                                 p.details-content
                                     | אצלנו ב- poli-lock אנו מעניקים שירותי פריצה שהם השירותים השכיחים ביותר למנעולן.
                                     | אך אנו מספקים גם שירותי מיגון במידה ותרצו לשדרג את מערכות ההגנה בדלתות הבית שלכם. אנו מעניקים שירותי פריצה ללא נזק לבית ולרכב בכל ימות השבוע 24 שעות ביממה כאשר אנו שמים דגש על- הגעה מהירה, מתן שירות מקצועי, אדיבות ואמינות.
-                .hero.absolute-height.availability
+                .hero.absolute-height.availability#about
                     .row
                         .col-half.right-side
                             .center-block
